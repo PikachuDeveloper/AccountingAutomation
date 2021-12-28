@@ -15,17 +15,19 @@ with open('AliExpressTransactions.htm', 'r', encoding="utf-8") as f:
     forecast_items = soup.find_all(class_=class_)
     forecast_items = list(map(lambda x: x.get_text(), forecast_items))
     forecast_items = list(filter(('').__ne__, forecast_items))
-    #
-    # for i in mydivs:
-    #     if 'Order ID:' == i.get_text()[:9]:
-    #         print(i.get_text())
 
-    for i in range(0, len(forecast_items), 4):
-        print('Order number: ', forecast_items[i])
-        print('Shop: ', forecast_items[i+1])
-        print('?: ', forecast_items[i+2])
-        print('?: ', forecast_items[i+3])
-        print('---------------------------------------------')
+    #prints everything
+    for i in mydivs:
+        if 'Order ID:' == i.get_text()[:9]:
+            print(i.get_text())
+
+    #prints only order number and shop name
+    # for i in range(0, len(forecast_items), 4):
+    #     print('Order number: ', forecast_items[i])
+    #     print('Shop: ', forecast_items[i+1])
+    #     print('?: ', forecast_items[i+2])
+    #     print('?: ', forecast_items[i+3])
+    #     print('---------------------------------------------')
 
 
 #soup = BeautifulSoup(contents, 'html')
